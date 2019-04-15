@@ -37,7 +37,7 @@ describe('Reviews Endpoints', function() {
       const userInvalidPass = { user_name: testUsers[0].user_name, password: 'wrong' }
       return supertest(app)
         .post('/api/reviews')
-        .set('Authorization', helpers.makeAuthHeader(testUsers[0]))
+        .set('Authorization', helpers.makeAuthHeader(userInvalidPass))
         .expect(401, { error: `Unauthorized request` })
     })
 
